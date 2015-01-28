@@ -1,50 +1,44 @@
-Анонимный "Чат с незнакомцем"
-=========
+Multi-Room Chat Application
+===
 
-https://anon.chatovod.ru/
+This application created as part of a node.js and socket.io tutorial.
+It includes a server built in node.js and a html client.
 
-Сообщения не сохраняются на сервере, а передаются сразу в браузер собеседника.
+You can read the full tutorial at:
+http://udidu.blogspot.com/2012/11/chat-evolution-nodejs-and-socketio.html
 
-Если открыть несколько окон чата, то каждое окно будет считаться отдельным собеседником.
+### To run:
 
-Поддерживаются все популярные браузеры и мобильные устройства.
+Please be sure you have expressjs and socket.io modules installed before running this application.
 
-Форум: http://forum.chatovod.com/viewtopic.php?id=1829
+On Windows/Mac/Linux:
 
-Основной JavaScript-код чата находится в файле: https://github.com/chatovod/anon-chat/blob/master/js/main.js
+	$ node server.js
+	
+After running go to this address:
 
-# Протокол
+	http://locahost:8080/
+	
 
-Для взаимодействия с сервером чата используется SockJS.
+### Live demo
 
-Формат пакета `cmd,data1,data2`, где "cmd" - код команды (1 байт), "data1,data2" - данные через запятую.
+For a live demo go to:
 
-## Команды посылаемые серверу
+	http://uditalias.github.com/chat-nodejs/public
+	
 
-`1` - поиск нового собеседника
+	
+### Credits
 
-`3,text` - отправка сообщения text
+This application uses the following:
 
-`6,id` - отправка подтверждения получения сообщения с номером id
+- Animate.css library - by Dan Eden: http://daneden.me/animate/
+- Avgrung modal - by Hakim El Hattab: http://lab.hakim.se/avgrund/
 
-`8` - свой статус "пишу"
 
-`9` - свой статус "не пишу"
+### Future features
 
-## Команды приходящие от сервера
-
-`2` - собеседник найден, начат диалог
-
-`4,id,text` - сообщение с номером id и текстом text от самого себя
-
-`5,id,text` - сообщение с номером id и тестом text от собеседника
-
-`7` - собеседник отключился
-
-`8` - статус собеседника "пишет"
-
-`9` - статус собеседника "не пишет"
-
-`o,count` - число (count) онлайн пользователей чата
-
-Получение сообщений необходимо подтверждать. Сообщения с одним id могут прийти повторно, повторные можно игнорировать.
+- Chat history with MongoDB and LocalStorage
+- Private chat with users
+	
+###Enjoy!
